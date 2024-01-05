@@ -72,7 +72,10 @@ function loginPage(): JSX.Element {
     async function loadResource(): Promise<void> {
       try {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const response = await fetch('http://localhost:4000/graphql/');
+        const apiUrl =
+          process.env.REACT_APP_TALAWA_URL || 'http://localhost:4000/graphql/';
+
+        const response = await fetch(apiUrl);
       } catch (error: any) {
         /* istanbul ignore next */
         errorHandler(t, error);
